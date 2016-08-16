@@ -8,28 +8,44 @@
 	h1{font-size: 40px;text-align: center;margin: 250px 0;}
 	h1 a{color: #666;}
 	.wrap-box{margin: 0 auto 800px;width: 1000px;position: relative;color: #fff;font: bold 16px/1.5 Arial;text-align: center;;}
-	.some-left div{width: 100%;height: 400px;;}
+	.some-left div{width: 100%;height: 800px;}
 	.some-left div:nth-child(odd){background-color: #869EB5;}
-	.some-left{width: 750px; background-color: #abc;line-height:400px}
-	.nail-right{width: 200px;height: 500px;line-height: 500px; background-color: #abc;padding: 30px 0;
+	.some-left{position: relative; width: 750px; background-color: #abc;}
+	.some-left strong{position: absolute;left: 0;width: 100%;height: 20px;background-color: blue;}
+	.nail-right{width: 200px;background-color: #abc;padding: 30px 0;
 		position: absolute;
 		top: 0;
 		right: 0;
 		transition: background-color .2s ease; 
 	}
+	.nail-right div{height: 200px;width: 100%;}
+	.nail-right div:nth-child(odd){background-color: #869EB5;}
+	.nail-right strong{position: absolute;left: 0;width: 100%;height: 20px;background-color: red;}
 	</style>
 </head>
 <body>
 	<h1><a href="https://github.com/jmjweb/jquery.nail.js">jquery.nail.js</a></h1>
 	<div class="wrap-box">
-		<div class="some-left">			
-			<div><p>You content</p></div>
+		<div class="some-left">
+			<strong style="top: 0;">nailBrother 进入顶部</strong>
 			<div></div>
 			<div></div>
 			<div></div>
+			<div></div>
+			<strong style="bottom: 0;">nailBrother 进入顶部</strong>
 		</div>
 		<div class="nail-right">
+			<strong style="top: 0;">oNail 进入顶部</strong>
 			<p>初始位置</p>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<strong style="bottom: 0;">oNail 进入底部</strong>
 		</div>
 	</div>
 
@@ -38,7 +54,7 @@
 	<script>
 	$(function(){
 		$('.nail-right').nail({
-			lOr: 'right',
+			direction: 'right',
 			defaultCall: function(nailObj){
 				nailObj.find('p').html('初始位置');
 			},
@@ -52,10 +68,6 @@
 		    }
 		});
 
-
-		ele.click(function(){
-			
-		});
 	})
 	</script>
 </body>
